@@ -16,3 +16,15 @@ export interface TaskFormProps {
     priority: Priority,
   ) => void;
 }
+
+export interface TaskListProps {
+  tasks: Task[];
+  onDelete: (id: string) => void;
+  onToggleComplete: (id: string) => void;
+}
+
+export interface TaskItemProps {
+  task: Task;
+  onDelete: (id: string) => void;
+  onToggleComplete: (id: string) => void;
+}
