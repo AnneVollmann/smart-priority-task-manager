@@ -6,6 +6,13 @@ const priorityFactors: Record<Priority, number> = {
   Hoch: 3,
 };
 
+/**
+ * Calculates the priority score based on complexity and priority factor.
+ *
+ * @param complexity - Value between 1 and 5.
+ * @param priority - Task priority level.
+ * @returns The calculated priority score.
+ */
 export function calculatePriorityScore(
   complexity: 1 | 2 | 3 | 4 | 5,
   priority: Priority,
