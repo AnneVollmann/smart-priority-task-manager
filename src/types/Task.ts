@@ -8,3 +8,11 @@ export interface Task {
   priorityScore: number;
   completed: boolean;
 }
+
+export interface TaskFormProps {
+  onAddTask: (
+    name: string,
+    complexity: 1 | 2 | 3 | 4 | 5,
+    priority: Priority,
+  ) => void;
+}
