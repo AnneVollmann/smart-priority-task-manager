@@ -24,7 +24,7 @@ export default function TaskItem({ task, onDelete, onToggleComplete }: TaskItemP
                 <Typography sx={{fontWeight: "bold", fontSize: 20}}>{task.name}</Typography>
                 <Typography>Komplexität: {task.complexity}</Typography>
                 <Typography>Priorität: {task.priority}</Typography>
-                <Typography>Score: {task.priorityScore}</Typography>
+                <Typography data-testid={`task-score-${task.id}`}>Score: {task.priorityScore}</Typography>
             </CardContent>
             <CardActions sx={{gap: "8px"}}>
                 <Checkbox checked={task.completed} onChange={() => onToggleComplete(task.id)} />
