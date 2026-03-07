@@ -11,6 +11,7 @@ import {
     Select,
     FormControl,
     InputLabel,
+    Typography,
 } from "@mui/material";
 
 export default function TaskForm({ onAddTask }: TaskFormProps) {
@@ -29,6 +30,9 @@ export default function TaskForm({ onAddTask }: TaskFormProps) {
     return (
         <Paper elevation={3} sx={{ p: 3 }}>
             <Stack spacing={2}>
+                <Typography variant="h6">
+                    Füge eine neue Aufgabe hinzu:
+                </Typography>
                 <TextField
                     label="Name der Aufgabe"
                     value={name}
@@ -82,7 +86,7 @@ export default function TaskForm({ onAddTask }: TaskFormProps) {
                         onClick={handleSubmit}
                         disabled={!name.trim()}
                     >
-                        Task erstellen
+                        Aufgabe erstellen
                     </Button>
                 </Box>
             </Stack>
