@@ -43,6 +43,7 @@ export default function TaskForm({ onAddTask }: TaskFormProps) {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     fullWidth
+                    inputProps={{ "data-testid": "task-name-input" }}
                 />
                 <FormControl fullWidth>
                     <InputLabel id="complexity-label">Komplexität</InputLabel>
@@ -57,6 +58,7 @@ export default function TaskForm({ onAddTask }: TaskFormProps) {
                         MenuProps={{
                             disableScrollLock: true,
                         }}
+                        data-testid="task-complexity-select"
                     >
                         {[1, 2, 3, 4, 5].map((level) => (
                             <MenuItem key={level} value={level}>
@@ -76,6 +78,7 @@ export default function TaskForm({ onAddTask }: TaskFormProps) {
                         MenuProps={{
                             disableScrollLock: true
                         }}
+                        data-testid="task-priority-select"
                     >
                         {["Niedrig", "Mittel", "Hoch"].map((p) => (
                             <MenuItem key={p} value={p}>
@@ -90,6 +93,7 @@ export default function TaskForm({ onAddTask }: TaskFormProps) {
                         fullWidth
                         onClick={handleSubmit}
                         disabled={!name.trim()}
+                        data-testid="add-task-btn"
                     >
                         Aufgabe erstellen
                     </Button>
