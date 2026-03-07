@@ -8,6 +8,9 @@ import {
     Button,
     Paper,
     Stack,
+    Select,
+    FormControl,
+    InputLabel,
 } from "@mui/material";
 
 export default function TaskForm({ onAddTask }: TaskFormProps) {
@@ -32,34 +35,46 @@ export default function TaskForm({ onAddTask }: TaskFormProps) {
                     onChange={(e) => setName(e.target.value)}
                     fullWidth
                 />
-                <TextField
-                    select
-                    label="Komplexität"
-                    value={complexity}
-                    onChange={(e) =>
-                        setComplexity(Number(e.target.value) as 1 | 2 | 3 | 4 | 5)
-                    }
-                    fullWidth
-                >
-                    {[1, 2, 3, 4, 5].map((level) => (
-                        <MenuItem key={level} value={level}>
-                            {level}
-                        </MenuItem>
-                    ))}
-                </TextField>
-                <TextField
-                    select
-                    label="Priorität"
-                    value={priority}
-                    onChange={(e) => setPriority(e.target.value as Priority)}
-                    fullWidth
-                >
-                    {["Niedrig", "Mittel", "Hoch"].map((p) => (
-                        <MenuItem key={p} value={p}>
-                            {p}
-                        </MenuItem>
-                    ))}
-                </TextField>
+                <FormControl fullWidth>
+                    <InputLabel id="complexity-label">Komplexität</InputLabel>
+
+                    <Select
+                        labelId="complexity-label"
+                        label="Komplexität"
+                        value={complexity}
+                        onChange={(e) =>
+                            setComplexity(Number(e.target.value) as 1 | 2 | 3 | 4 | 5)
+                        }
+                        MenuProps={{
+                            disableScrollLock: true,
+                        }}
+                    >
+                        {[1, 2, 3, 4, 5].map((level) => (
+                            <MenuItem key={level} value={level}>
+                                {level}
+                            </MenuItem>
+                        ))}
+                    </Select>
+                </FormControl>
+                <FormControl fullWidth>
+                    <InputLabel id="priority-label">Priorität</InputLabel>
+
+                    <Select
+                        labelId="priority-label"
+                        label="Priorität"
+                        value={priority}
+                        onChange={(e) => setPriority(e.target.value as Priority)}
+                        MenuProps={{
+                            disableScrollLock: true
+                        }}
+                    >
+                        {["Niedrig", "Mittel", "Hoch"].map((p) => (
+                            <MenuItem key={p} value={p}>
+                                {p}
+                            </MenuItem>
+                        ))}
+                    </Select>
+                </FormControl>
                 <Box>
                     <Button
                         variant="contained"
