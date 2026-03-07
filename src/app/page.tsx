@@ -58,7 +58,7 @@ export default function HomePage() {
       <h1>Smart Priority Task Manager</h1>
       <TaskForm onAddTask={handleAddTask} />
       <TaskList
-        tasks={tasks}
+        tasks={sortedTasks}
         onDelete={handleDeleteTask}
         onToggleComplete={handleToggleComplete}
       />
