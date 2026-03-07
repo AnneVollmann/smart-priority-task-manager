@@ -19,6 +19,7 @@ export default function TaskItem({ task, onDelete, onToggleComplete }: TaskItemP
                 opacity: task.completed ? 0.5 : 1,
                 border: highPriority ? "4px solid #f44336" : "4px solid #fff"
             }}
+            data-testid={`task-${task.id}`}
         >
             <CardContent>
                 <Typography sx={{fontWeight: "bold", fontSize: 20}}>{task.name}</Typography>
