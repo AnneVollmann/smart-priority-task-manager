@@ -6,7 +6,6 @@ import TaskForm from "@/components/TaskForm";
 import TaskList from "@/components/TaskList";
 import { calculatePriorityScore } from "@/utils/priorityScoreCalculator";
 import { Box, Container, Stack, Typography } from "@mui/material";
-import { Margin } from "@mui/icons-material";
 
 export default function HomePage() {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -20,6 +19,13 @@ export default function HomePage() {
     return [...tasks].sort((a, b) => b.priorityScore - a.priorityScore);
   }, [tasks]);
 
+  /**
+   * Adds a new task to the TaskList with calculated priority score.
+   *
+   * @param name - The name of the task
+   * @param complexity - Task complexity (1-5)
+   * @param priority - Task priority ("Niedrig" | "Mittel" | "Hoch")
+   */
   function handleAddTask(
     name: string,
     complexity: 1 | 2 | 3 | 4 | 5,
@@ -39,12 +45,22 @@ export default function HomePage() {
     saveTasks(updatedTasks);
   }
 
+  /**
+   * Deletes a task from the TaskList by its ID.
+   *
+   * @param id - The ID of the task to delete
+   */
   function handleDeleteTask(id: string) {
     const updatedTasks = tasks.filter(task => task.id !== id);
     setTasks(updatedTasks);
     saveTasks(updatedTasks);
   }
 
+  /**
+   * Toggles the completed status of a task by its ID.
+   *
+   * @param id - The ID of the task to toggle
+   */
   function handleToggleComplete(id: string) {
     const updatedTasks = tasks.map(task =>
       task.id === id
@@ -56,7 +72,7 @@ export default function HomePage() {
   }
 
   return (
-    <Box sx={{minHeight: "100vh", py: 6, backgroundColor: "#f5f5f53e"}}>
+    <Box sx={{ minHeight: "100vh", py: 6, backgroundColor: "#f5f5f53e" }}>
       <Container maxWidth="md">
         <Stack spacing={4}>
           <Typography variant="h3" textAlign="center">

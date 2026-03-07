@@ -19,6 +19,11 @@ export default function TaskForm({ onAddTask }: TaskFormProps) {
     const [complexity, setComplexity] = useState<1 | 2 | 3 | 4 | 5>(1);
     const [priority, setPriority] = useState<Priority>("Mittel");
 
+    /**
+     * Handles the form submission to add a new task.
+     * Validates that the task name is not empty before calling onAddTask.
+     * Resets form fields after submission.
+     */
     function handleSubmit() {
         if (!name.trim()) return;
         onAddTask(name, complexity, priority);
