@@ -5,6 +5,8 @@ import { getTasks, saveTasks } from "@/utils/storage";
 import TaskForm from "@/components/TaskForm";
 import TaskList from "@/components/TaskList";
 import { calculatePriorityScore } from "@/utils/priorityScoreCalculator";
+import { Box, Container, Stack, Typography } from "@mui/material";
+import { Margin } from "@mui/icons-material";
 
 export default function HomePage() {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -54,14 +56,20 @@ export default function HomePage() {
   }
 
   return (
-    <div>
-      <h1>Smart Priority Task Manager</h1>
-      <TaskForm onAddTask={handleAddTask} />
-      <TaskList
-        tasks={sortedTasks}
-        onDelete={handleDeleteTask}
-        onToggleComplete={handleToggleComplete}
-      />
-    </div>
+    <Box sx={{minHeight: "100vh", py: 6, backgroundColor: "#f5f5f53e"}}>
+      <Container maxWidth="md">
+        <Stack spacing={4}>
+          <Typography variant="h3" textAlign="center">
+            Smart Priority Task Manager
+          </Typography>
+          <TaskForm onAddTask={handleAddTask} />
+          <TaskList
+            tasks={sortedTasks}
+            onDelete={handleDeleteTask}
+            onToggleComplete={handleToggleComplete}
+          />
+        </Stack>
+      </Container>
+    </Box>
   );
 }
