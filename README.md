@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Smart Priority Task Manager
+
+A small web application to manage tasks with a priority score based on complexity and priority level. Tasks can be marked as completed, deleted, and persist between page reloads. Built as a coding challenge using Next.js, TypeScript, and Material UI, with automated Playwright E2E tests.
+
+## Features
+
+- Add tasks with a name, complexity (1-5), and priority (Low, Medium, High)
+- Automatic priority score calculation: complexity * priority factor (Low = 1, Medium = 2, High = 3)
+- Mark tasks as completed or delete them
+- High-priority tasks (score >10) are visually highlighted
+- Tasks persist in localStorage
+- Responsive Material UI interface
+
+## Tech Stack
+
+- Next.js (App Router)
+- TypeScript
+- Material UI (MUI)
+- Playwright (End-to-End tests)
 
 ## Getting Started
 
-First, run the development server:
+- Install dependencies
+    `npm install`
+    or
+    `yarn install`
+    or
+    `pnpm install`
+- Run development server
+    `npm run dev`
+- Open [http://localhost:3000] in your browser. The page auto-updates as you edit files.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Running Tests
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The project uses Playwright for automated E2E tests. Make sure the development server is running before running tests.
+`npx playwright test`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Test coverage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Add Task: Check that a new task can be created and appears in the list
+- Priority Score: Verify that the score is correctly calculated and displayed
+- Persistence: Ensure that tasks remain in the list after a page reload
